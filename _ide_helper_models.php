@@ -13,13 +13,34 @@
 
 namespace App\Models{
 /**
- * @property-read \App\Models\User|null $user
+ * @property int $id
+ * @property int $user_id
+ * @property string $quote
+ * @property string $author
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \App\Models\User $user
  * @method static \Database\Factories\QuoteFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Quote newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Quote newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Quote query()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Quote whereAuthor($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Quote whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Quote whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Quote whereQuote($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Quote whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Quote whereUserId($value)
  */
 	class Quote extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|ScopedModel newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|ScopedModel newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|ScopedModel query()
+ */
+	class ScopedModel extends \Eloquent implements \App\ScopedToUser {}
 }
 
 namespace App\Models{

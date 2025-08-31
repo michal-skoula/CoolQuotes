@@ -15,17 +15,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-		try {
-			User::factory()->has(Quote::factory()->count(20))->create([
-				'name' => 'Michal Škoula',
-				'email' => 'michal@skoula.com',
-			]);
-		}
-		catch(UniqueConstraintViolationException $e) {
-			\Log::info('Default user already exists, skipping.');
-		}
-
-
 		User::factory()
 			->count(10)
 			->has(
